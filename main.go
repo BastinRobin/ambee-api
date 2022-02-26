@@ -31,4 +31,10 @@ func main() {
 
 	fmt.Println(weather)
 
+	pollen, err := ambee.GetPollen(11.720800, 75.533699)
+	if err != nil {
+		log.Println(err)
+	}
+	fmt.Println(pollen)
+
 }
