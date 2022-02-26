@@ -17,7 +17,12 @@ func main() {
 			"Content-Type": []string{"application/json"},
 		},
 	}
+	fire, err := ambee.GetFire(12.06552, 77.05711)
+	if err != nil {
+		log.Println(err)
+	}
 
+	fmt.Println(fire.Data)
 	air, err := ambee.GetAirQuality("IN")
 	if err != nil {
 		log.Println(err)

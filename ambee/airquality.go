@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type Response struct {
+type Responses struct {
 	Message  string
 	Stations Stations
 }
@@ -20,21 +20,21 @@ type Station struct {
 	NO2     float64
 }
 
-func (a *Ambee) GetAirQuality(country string) (Response, error) {
+func (a *Ambee) GetAirQuality(country string) (Responses, error) {
 	url := fmt.Sprintf("/latest/by-country-code?countryCode=%v", country)
 
 	response, err := a.Request(url, "GET")
 
 	if err != nil {
 		log.Println(err)
-		return Response{}, err
+		return Responses{}, err
 	}
 
-	var stations Response
+	var stations Responses
 	err = json.Unmarshal(response, &stations)
 	if err != nil {
 		log.Println(err)
-		return Response{}, err
+		return Responses{}, err
 	}
 
 	return stations, nil
