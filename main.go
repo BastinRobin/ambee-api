@@ -17,18 +17,11 @@ func main() {
 			"Content-Type": []string{"application/json"},
 		},
 	}
-
-	air, err := ambee.GetAirQuality("IN")
-	if err != nil {
-		log.Println(err)
-	}
-	fmt.Println(air)
-
-	weather, err := ambee.GetWeather(11.720800, 75.533699)
+	fire, err := ambee.GetFire(12.06552, 77.05711)
 	if err != nil {
 		log.Println(err)
 	}
 
-	fmt.Println(weather)
+	fmt.Println(fire.Data)
 
 }
