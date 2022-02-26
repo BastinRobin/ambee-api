@@ -23,5 +23,17 @@ func main() {
 	}
 
 	fmt.Println(fire.Data)
+	air, err := ambee.GetAirQuality("IN")
+	if err != nil {
+		log.Println(err)
+	}
+	fmt.Println(air)
+
+	weather, err := ambee.GetWeather(11.720800, 75.533699)
+	if err != nil {
+		log.Println(err)
+	}
+
+	fmt.Println(weather)
 
 }
